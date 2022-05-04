@@ -46,30 +46,40 @@ public class Exercise7 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		//Declararion
+		JLabel lblcantidad = new JLabel("Cantidad a convertir");
+		JLabel lblResultado = new JLabel("Resultado");
+		JButton btnCambiar = new JButton("Cambiar");
+		tfResultado = new JTextField();
+		tfValor = new JTextField();
+		btnCalculo = new JButton("Euros a ptas");
+		
+		//Parametring
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblcantidad = new JLabel("Cantidad a convertir");
+		
 		lblcantidad.setBounds(6, 28, 127, 16);
 		frame.getContentPane().add(lblcantidad);
 		
-		tfValor = new JTextField();
+		
 		tfValor.setBounds(139, 23, 87, 26);
 		frame.getContentPane().add(tfValor);
 		tfValor.setColumns(10);
 		
-		JLabel lblResultado = new JLabel("Resultado");
+		
 		lblResultado.setBounds(238, 28, 62, 16);
 		frame.getContentPane().add(lblResultado);
 		
-		tfResultado = new JTextField();
+		
 		tfResultado.setColumns(10);
 		tfResultado.setBounds(312, 23, 87, 26);
-		frame.getContentPane().add(tfResultado);
+		btnCalculo.setBounds(70, 90, 117, 29);
+		btnCambiar.setBounds(199, 90, 117, 29);
 		
-		btnCalculo = new JButton("Euros a ptas");
+		//Action Listeners
 		btnCalculo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Double casting = Double.valueOf(tfValor.getText());
@@ -78,10 +88,7 @@ public class Exercise7 {
 				
 			}
 		});
-		btnCalculo.setBounds(70, 90, 117, 29);
-		frame.getContentPane().add(btnCalculo);
 		
-		JButton btnCambiar = new JButton("Cambiar");
 		btnCambiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -92,9 +99,15 @@ public class Exercise7 {
 				}
 			}
 		});
-		btnCambiar.setBounds(199, 90, 117, 29);
+		
+		
+		//Adding to frame
+		frame.getContentPane().add(tfResultado);
+		frame.getContentPane().add(btnCalculo);
 		frame.getContentPane().add(btnCambiar);
 	}
+	
+	//Funtion of conversion
 	public Double conversion(Double valor) {
 		Double resultado = 0.0;
 		
